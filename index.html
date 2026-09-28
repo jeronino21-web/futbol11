@@ -41,6 +41,26 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const pos={POR:[8,50],DFC1:[22,25],DFC2:[22,50],DFC3:[22,75],MCD:[40,50],MD:[50,12],MC:[50,32],MCO:[50,68],MI:[50,88],DC:[80,38],DC2:[80,62]};
 let players=[],events=[],history=[],calendar=[],exercises=[],running=false,match=0,last=Date.now(),period=1,opponentGoals=0,selectedTab='minutes',modalAction=null, modalSelected=null,installPrompt=null;
 try{const saved=JSON.parse(localStorage.getItem('futbol11_data')||'null');if(saved){players=saved.players||[];events=saved.events||[];history=saved.history||[];calendar=saved.calendar||[];exercises=saved.exercises||[];match=saved.match||0;period=saved.period||1;opponentGoals=saved.opponentGoals||0}}catch(e){}
+if(!players.length){players=[
+{id:crypto.randomUUID(),name:'Zaka',number:'1',role:'POR',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Adonay',number:'2',role:'DFC1',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Pol',number:'20',role:'DFC2',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Guille',number:'3',role:'DFC3',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Ander',number:'4',role:'DFC1',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Mario G',number:'5',role:'DFC2',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Aleix',number:'6',role:'DC',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Mario Gi',number:'7',role:'MD',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Albert',number:'8',role:'MC',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Anas',number:'9',role:'DC2',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Nel',number:'10',role:'MCO',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Hugo',number:'11',role:'MI',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Alex',number:'12',role:'DFC3',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Enzo',number:'14',role:'MC',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Dani',number:'15',role:'MD',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Xavi',number:'16',role:'MCO',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Iago',number:'17',role:'MI',minutes:0,on:false,last:0,goals:0},
+{id:crypto.randomUUID(),name:'Martin',number:'18',role:'DC',minutes:0,on:false,last:0,goals:0}
+];save()}
 function save(){try{localStorage.setItem('futbol11_data',JSON.stringify({players,events,history,calendar,exercises,match,period,opponentGoals}))}catch(e){}}
 function timeFmt(s){s=Math.max(0,Math.floor(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
 function nowTotal(p){return p.minutes+(p.on&&running?(Date.now()-p.last)/1000:0)}
