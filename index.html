@@ -17,7 +17,7 @@
 /* Campo y tacto */
 .pitch{touch-action:none;background:repeating-linear-gradient(90deg,#168b35 0 6.25%,#20963d 6.25% 12.5%)}
 .pos{-webkit-touch-callout:none}
-@media(max-width:560px){.pitch{min-height:0;aspect-ratio:16/9}}
+@media(max-width:560px){.pitch{min-height:0;aspect-ratio:16/9;width:100%;height:auto}.pos .dot{width:42px;height:50px}.pos .dot:before,.pos .dot:after{width:14px;height:25px}.pos .pname{font-size:10px}}
 .pitch{aspect-ratio:1000/560;min-height:0;background:#167b32;border:4px solid #fff;touch-action:none;isolation:isolate}.pitch:before,.pitch:after{display:none}.pitch-bg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;pointer-events:none}.pos{z-index:3;touch-action:none}.pos .dot{position:relative;z-index:4}.pos .pname{position:relative;z-index:4}
  </style>
 </head>
@@ -124,5 +124,5 @@ ensurePitch();setInterval(()=>{if(running){let n=Date.now();match+=(n-last)/1000
 .pitch.field-fullscreen .pos{width:128px}.pitch.field-fullscreen .pos .dot{width:58px;height:66px}.pitch.field-fullscreen .pos .pname{font-size:14px}
 </style>
 <script>
-(()=>{const pitch=document.querySelector('#pitch');if(!pitch)return;const close=document.createElement('button');close.type='button';close.className='pitch-full-close';close.setAttribute('aria-label','Cerrar campo');close.textContent='×';pitch.appendChild(close);const open=()=>{pitch.classList.add('field-fullscreen');document.body.style.overflow='hidden'};const shut=()=>{pitch.classList.remove('field-fullscreen');document.body.style.overflow=''};pitch.addEventListener('click',e=>{if(e.target===pitch||e.target.closest('.pitch-bg'))open()});pitch.addEventListener('pointerdown',e=>{if(e.target.closest('.pos'))open()},{capture:true});close.addEventListener('pointerdown',e=>{e.stopPropagation();shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()})})()
+(()=>{const pitch=document.querySelector('#pitch');if(!pitch)return;const close=document.createElement('button');close.type='button';close.className='pitch-full-close';close.setAttribute('aria-label','Cerrar campo');close.textContent='×';pitch.appendChild(close);const open=()=>{if(window.innerWidth<=560)return;pitch.classList.add('field-fullscreen');document.body.style.overflow='hidden'};const shut=()=>{pitch.classList.remove('field-fullscreen');document.body.style.overflow=''};pitch.addEventListener('click',e=>{if(e.target===pitch||e.target.closest('.pitch-bg'))open()});pitch.addEventListener('pointerdown',e=>{if(window.innerWidth>560&&e.target.closest('.pos'))open()},{capture:true});close.addEventListener('pointerdown',e=>{e.stopPropagation();shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()})})()
 </script></body></html>
