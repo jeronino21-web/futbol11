@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 340">
+<defs>
+ <clipPath id="shield"><path d="M18 8H282L150 332Z"/></clipPath>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#e9f4ff"/><stop offset="1" stop-color="#b9d9ef"/></linearGradient>
+</defs>
+<path d="M18 8H282L150 332Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/>
+<g clip-path="url(#shield)">
+ <rect x="21" y="40" width="258" height="275" fill="url(#sky)"/>
+ <g opacity=".9">
+  <path d="M20 118L78 55l32 40 40-54 52 77H20Z" fill="#6d8e73"/>
+  <path d="M20 118l58-63 18 43 28-30 26 50H20Z" fill="#a9a56f"/>
+  <path d="M20 119l53-53 17 25 19-24 27 52H20Z" fill="#7a6f57"/>
+ </g>
+ <rect x="171" y="40" width="108" height="78" fill="#fff"/>
+ <path d="M171 40h108v78H171z" fill="#fff"/>
+ <path d="M231 40h48v78h-48z" fill="#ffd83d"/>
+ <path d="M231 40h10v78h-10zM251 40h10v78h-10zM271 40h8v78h-8z" fill="#e31d32"/>
+ <g transform="translate(214 58)">
+   <path d="M0 14h34l-3 8H3z" fill="#e0b400" stroke="#8a6500" stroke-width="1"/>
+   <path d="M3 14V7l5 4 5-7 5 7 5-7 5 7 5-4v7" fill="#f0c400" stroke="#8a6500" stroke-width="1"/>
+   <circle cx="5" cy="4" r="2" fill="#f0c400"/><circle cx="16" cy="1" r="2" fill="#f0c400"/><circle cx="27" cy="4" r="2" fill="#f0c400"/>
+ </g>
+ <path d="M236 83l22 17-22 17-22-17z" fill="#159447" stroke="#fff" stroke-width="2"/>
+ <path d="M225 96c5-5 8-3 12 0 4-4 8-2 8 2 0 5-8 9-13 11-5-3-9-7-9-10 0-2 1-3 2-3z" fill="#fff"/>
+ <g opacity=".95">
+  <path d="M20 116h258v45H20z" fill="#fff"/>
+  <path d="M20 116h258v8H20M20 139h258v8H20" fill="#79b9e6"/>
+ </g>
+ <g fill="#73b7e4">
+  <path d="M20 161h258v28H20z"/><path d="M20 217h258v28H20z"/><path d="M20 273h258v28H20z"/>
+ </g>
+ <g fill="#fff"><path d="M20 189h258v28H20z"/><path d="M20 245h258v28H20z"/></g>
+ <text x="150" y="145" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" font-weight="800" fill="#111">Viladecans</text>
+ <g transform="translate(150 240)">
+   <circle r="38" fill="#fff" stroke="#111" stroke-width="3"/>
+   <path d="M0-38c12 0 22 6 29 15l-15 10c-4-7-9-10-14-10zm29 15c6 8 9 18 8 28l-18-2c1-7-1-13-5-18zM37 5c-2 12-9 22-19 28l-10-16c7-4 11-9 12-16zM18 33C8 39-4 40-14 36l6-17c7 3 13 2 19-2zM-14 36c-11-4-19-12-24-22l16-8c3 7 8 11 14 13zM-38 14c-3-11-1-22 4-31l16 8c-4 7-5 13-2 19zM-34-17c7-10 17-17 29-20l5 18c-8 2-13 5-18 12z" fill="#111"/>
+   <circle r="10" fill="#fff"/>
+ </g>
+</g>
+<text x="150" y="30" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="900" fill="#111">U. D. ST. MONTSERRATINA</text>
+</svg>
