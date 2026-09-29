@@ -126,4 +126,29 @@ ensurePitch();setInterval(()=>{if(running){let n=Date.now();match+=(n-last)/1000
 </style>
 <script>
 (()=>{const pitch=document.querySelector('#pitch');if(!pitch)return;const close=document.createElement('button');close.type='button';close.className='pitch-full-close';close.setAttribute('aria-label','Cerrar campo');close.textContent='×';pitch.appendChild(close);const open=()=>{if(window.innerWidth<=560)return;pitch.classList.add('field-fullscreen');document.body.style.overflow='hidden'};const shut=()=>{pitch.classList.remove('field-fullscreen');document.body.style.overflow=''};pitch.addEventListener('click',e=>{if(e.target===pitch||e.target.closest('.pitch-bg'))open()});pitch.addEventListener('pointerdown',e=>{if(window.innerWidth>560&&e.target.closest('.pos'))open()},{capture:true});close.addEventListener('pointerdown',e=>{e.stopPropagation();shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()})})()
-</script></body></html>
+</script>
+<!-- VERSION MOVIL ESTABLE 2026-09-29 -->
+<style>
+@media(max-width:560px){
+  .pitch{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:16/9!important}
+  .pitch .pos{width:76px!important}
+  .pitch .pos .dot{width:42px!important;height:50px!important;background:#87ceeb!important;color:#fff!important;border:2px solid #2d6e88!important;border-radius:10px 10px 7px 7px!important;box-shadow:0 5px 8px #0006!important}
+  .pitch .pos .pname{font-size:10px!important;background:#164d66d9!important;color:#fff!important}
+}
+.pitch .stable-field{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.pitch .pos{z-index:3!important}
+</style>
+<script>
+(()=> {
+  const pitch=document.querySelector('#pitch');
+  if(!pitch || pitch.querySelector('.stable-field')) return;
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('class','stable-field');
+  svg.setAttribute('viewBox','0 0 1000 560');
+  svg.setAttribute('preserveAspectRatio','none');
+  svg.setAttribute('aria-hidden','true');
+  svg.innerHTML='<defs><linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="#167a31"/><stop offset=".5" stop-color="#239842"/><stop offset="1" stop-color="#167a31"/></linearGradient><pattern id="sm" width="125" height="560" patternUnits="userSpaceOnUse"><rect width="62.5" height="560" fill="#ffffff08"/><rect x="62.5" width="62.5" height="560" fill="#00000008"/></pattern></defs><rect width="1000" height="560" fill="url(#sg)"/><rect width="1000" height="560" fill="url(#sm)"/><g fill="none" stroke="#fff" stroke-width="5"><rect x="18" y="18" width="964" height="524"/><line x1="500" y1="18" x2="500" y2="542"/><circle cx="500" cy="280" r="92"/><circle cx="500" cy="280" r="4" fill="#fff"/><path d="M18 126H188V434H18M18 205H98V355H18M982 126H812V434H982M982 205H902V355H982"/><path d="M188 224Q250 280 188 336M812 224Q750 280 812 336"/><rect x="2" y="223" width="16" height="114"/><rect x="982" y="223" width="16" height="114"/></g><g stroke="#fff" stroke-width="3" opacity=".55"><path d="M0 236H18M0 252H18M0 268H18M0 284H18M0 300H18M0 316H18"/><path d="M982 236H1000M982 252H1000M982 268H1000M982 284H1000M982 300H1000M982 316H1000"/></g>';
+  pitch.insertBefore(svg,pitch.firstChild);
+})();
+</script>
+</body></html>
